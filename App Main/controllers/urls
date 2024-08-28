@@ -1,0 +1,12 @@
+from flask import Flask, request
+from controllers import contructure
+
+class app_routes(contructure):
+    def __init__(self, appFlask_name_):
+        super().__init__(appFlask_name_)
+
+    def routes(self):
+        @self.appFlask_name_.route("/home")
+        def home():            
+            return "this the home"
+        home()
