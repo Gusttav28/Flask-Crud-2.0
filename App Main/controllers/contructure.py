@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 
 class app:
@@ -17,15 +17,15 @@ class app:
     def app_routes(self):
         @self.appFlask_name_.route(self.route_home)
         def index():
-            return "This is the home page"
+            return render_template("home.html")
         
         @self.appFlask_name_.route(self.route_tableView)
         def table_view():
-            return "This is the table view page"
+            return render_template("table_view.html")
         
         @self.appFlask_name_.route(self.route_tableUpdate)
         def table_update():
-            return "This is the table update page"
+            return render_template("table_update.html")
         
         @self.appFlask_name_.route(self.route_tableDelete)
         def table_delete():
