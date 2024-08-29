@@ -29,8 +29,8 @@ class app:
             if request.method == 'GET':
                 username = request.args.get('username')
                 password = request.args.get('password')
-                print(username, password)
                 if username in self.users and self.users[username] == password:
+                    print(username, password)
                     return "Welcome"
                 else:
                     return "invalid credentials"
