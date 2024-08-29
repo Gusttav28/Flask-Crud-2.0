@@ -1,7 +1,28 @@
-{% extends 'layout.html' %}
+{% extends 'layouts/layout.html' %}
 
 {% block body %}
 <h1>this is the table view page</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Age</th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Ocupation</th>
+        <th>Operatio</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <button>
+        <a href="/tableUpdate" class="btn btn-secondary">Edit</a>
+    </button>
+    <button>
+        <a href="/tableDelete" class="btn btn-secondary">Delete</a>
+    </button>
+</table>
 
 {% endblock %}
 

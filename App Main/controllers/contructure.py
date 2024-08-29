@@ -9,7 +9,12 @@ class app:
         self.route_tableView = "/tableView"
         self.route_tableUpdate = "/tableUpdate"
         self.route_tableDelete = "/tableDelete"
-        
+        self.appFlask_name_.secret_key = "mysssecretkey"
+        self.users = {
+            'gus': "1234",
+            "adf": "adfas"
+        }
+
 
     def app_main(self):
         self.appFlask_name_.run(port=8080, debug=True)
@@ -19,9 +24,18 @@ class app:
         def index():
             return render_template("home.html")
         
-        @self.appFlask_name_.route(self.route_tableView)
+        @self.appFlask_name_.route(self.route_tableView, methods=['GET'])
         def table_view():
-            return render_template("table_view.html")
+            if request.method == 'GET':
+                username = request.args.get('username')
+                password = request.args.get('password')
+                print(username, password)
+                if username in self.users and self.users[username] == password:
+                    return "Welcome"
+                else:
+                    return "invalid credentials"
+            else:
+                return render_template("home.html")
         
         @self.appFlask_name_.route(self.route_tableUpdate)
         def table_update():
