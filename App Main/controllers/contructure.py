@@ -25,25 +25,27 @@ class app:
             'gus': "1234",
             "adf": "adfas"
         }
+        
+        self.mysql_db = db_connection
 
     # main method for run the application
     def app_main(self):
-        self.appFlask_name_.run(port=8080, debug=True)
+        self.appFlask_name_.run(port=8090, debug=True)
 
     
     #method for starts the routes
     def app_routes(self):
-        @self.appFlask_name_.route(self.route_home)
-
-        #method for the home route
-        def index():
-            return render_template("home.html")
         
 
         @self.appFlask_name_.route(self.route_userlogin)
         def userlogin():
             return render_template("userlogin.html")
         
+
+        #method for the home route
+        @self.appFlask_name_.route(self.route_home)
+        def index():
+            return render_template("home.html")
 
         @self.appFlask_name_.route(self.route_login, methods=['GET'])
         def handle_login():
@@ -74,14 +76,14 @@ class app:
                     print(name)
                     print(last_name)
                     print(ocupation)
-                    db = db_connection
-                    db.inserting_into_theDb(age, name, last_name, ocupation)
+                    self.mysql_db.inserting_into_theDb(age, name, last_name, ocupation)
                 except:
                     print("was some error while you was puting the data")
                     return render_template("table_view.html")
                 for i in data_list:
                     print(i)
-
+            # db_data = db.data_consulting()
+            # print(db_data)
             return render_template("table_view.html")
 
         #method for handle the login http request with [GET]

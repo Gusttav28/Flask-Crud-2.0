@@ -14,8 +14,9 @@ def data_consulting():
     cur = cnn.cursor()
     cur.execute('SELECT * FROM user')
     data = cur.fetchall()
-    for i in data:
-        print(i)
+    print(data)
+    # for i in data:
+    #     print(i)
 
 def inserting_into_theDb(age, first_name = str, last_name = str, ocupation = str):
     age = age
