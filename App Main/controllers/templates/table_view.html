@@ -3,6 +3,18 @@
 {% block body %}
 <h1>this is the table view page</h1>
 
+<div>
+    <!-- in the POST method, its really important that method in the form it have to be ALWAWS at front, first that the action, than comes the action with the NAME OF THE FUNTION WHO HAVE THE URL -->
+    <form method="POST" action="tableView" >
+        <input type="text" name = "Age" placeholder="Age" class="form-control">
+        <input type="text" name = "Name" placeholder="Name" class="form-control">
+        <input type="text" name = "lastName" placeholder="lastName" class="form-control">
+        <input type="text" name = "Ocupation" placeholder="Ocupation" class="form-control">
+        <button type="submit">Save</button>
+    </form>
+
+</div>
+
 <table>
     <tr>
         <th>ID</th>
@@ -10,10 +22,9 @@
         <th>Name</th>
         <th>Last Name</th>
         <th>Ocupation</th>
-        <th>Operatio</th>
+        <th>Operation</th>
     </tr>
     <tr>
-        <td></td>
         <td></td>
     </tr>
     <button>

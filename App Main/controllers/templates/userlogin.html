@@ -1,0 +1,16 @@
+{% block body %}
+<h1>this is the login view, put the credentials right to go to the menu</h1>
+
+<div>
+    <!-- here we just need to put first the action and the url with the name of the funtion, and than we need to put the method, that in this case is a GET method -->
+    <form action="{{ url_for('handle_login') }}" methods="GET">
+    <input type="text" name = "username" placeholder="username" class="form-control">
+        <input type="text" name = "password" placeholder="password" class="form-control">
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
+
+
+{% endblock %}
+
