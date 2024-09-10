@@ -19,18 +19,18 @@ class app:
         self.route_tableUpdate = "/tableUpdate"   #this is a page for make updates
         self.route_tableDelete = "/tableDelete"  #and this is for delete (but it might will disappear because we might no need it)
         self.appFlask_name_.secret_key = "mysssecretkey"  #secret key defination for POST http request  
-        
+        self.mysql_db = db_connection
         #this is the dictionary who have the user and the password of each user (this is just for test, than we are gonna change this for the data base) 
         self.users = {
             'gus': "1234",
             "adf": "adfas"
         }
         
-        self.mysql_db = db_connection
+        
 
     # main method for run the application
     def app_main(self):
-        self.appFlask_name_.run(port=8090, debug=True)
+        self.appFlask_name_.run(port=8091, debug=True)
 
     
     #method for starts the routes
@@ -45,6 +45,7 @@ class app:
         #method for the home route
         @self.appFlask_name_.route(self.route_home)
         def index():
+            print(self.mysql_db.data_consulting())
             return render_template("home.html")
 
         @self.appFlask_name_.route(self.route_login, methods=['GET'])
@@ -84,6 +85,8 @@ class app:
                     print(i)
             # db_data = db.data_consulting()
             # print(db_data)
+            # data = self.mysql_db.data_consulting()
+            # print(data)
             return render_template("table_view.html")
 
         #method for handle the login http request with [GET]
@@ -96,18 +99,4 @@ class app:
         #method for the table delete route (it could be delete)
         @self.appFlask_name_.route(self.route_tableDelete)
         def table_delete():
-            return "This is the table delete page"
-        
-        
-        
-        
-
-
-        
-
-    
-
-
-        
-
-
+            return "This is the table delete page" 
