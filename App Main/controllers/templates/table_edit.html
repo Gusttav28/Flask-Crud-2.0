@@ -1,0 +1,17 @@
+{% extends 'layouts/layout.html' %}
+
+{% block body %}
+<h1>this the edit user page</h1>
+
+<div>
+    <form method="POST" action="/tableUpdate/{{user_information.0}}" >
+        <input type="text" name = "Age" placeholder="Age" value="{{user_information.1}}" class="form-control">
+        <input type="text" name = "Name" placeholder="Name"value="{{user_information.2}}"class="form-control">
+        <input type="text" name = "lastName" placeholder="lastName"value="{{user_information.3}}"class="form-control">
+        <input type="text" name = "Ocupation" placeholder="Ocupation"value="{{user_information.4}}"class="form-control">
+        <button type="submit">Save</button>
+    </form>
+
+</div>
+
+{% endblock %}

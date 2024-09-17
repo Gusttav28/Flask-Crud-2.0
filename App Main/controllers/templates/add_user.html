@@ -1,0 +1,27 @@
+{% extends 'layouts/layout.html' %}
+
+{% block body %}
+<h1>this the add user page</h1>
+
+
+<div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <!-- in the POST method, its really important that method in the form it have to be ALWAWS at front, first that the action, than comes the action with the NAME OF THE FUNTION WHO HAVE THE URL -->
+    <form method="POST" action="addUser" >
+        <input type="text" name = "Age" placeholder="Age" class="form-control">
+        <input type="text" name = "Name" placeholder="Name" class="form-control">
+        <input type="text" name = "lastName" placeholder="lastName" class="form-control">
+        <input type="text" name = "Ocupation" placeholder="Ocupation" class="form-control">
+        <button type="submit">Save</button>
+    </form>
+
+</div>
+
+
+{% endblock %}

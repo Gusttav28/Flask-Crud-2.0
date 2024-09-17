@@ -4,44 +4,53 @@
 <h1>this is the table view page</h1>
 
 <div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
     <!-- in the POST method, its really important that method in the form it have to be ALWAWS at front, first that the action, than comes the action with the NAME OF THE FUNTION WHO HAVE THE URL -->
-    <form method="POST" action="tableView" >
+    <form method="POST" action="/addUser" >
         <input type="text" name = "Age" placeholder="Age" class="form-control">
         <input type="text" name = "Name" placeholder="Name" class="form-control">
         <input type="text" name = "lastName" placeholder="lastName" class="form-control">
         <input type="text" name = "Ocupation" placeholder="Ocupation" class="form-control">
         <button type="submit">Save</button>
     </form>
+    <div> 
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Age</th>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Ocupation</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for userInformation in user_information %}
+                <tr>
+                    <td>{{ userInformation.0 }}</td>
+                    <td>{{ userInformation.1 }}</td>
+                    <td>{{ userInformation.2 }}</td>
+                    <td>{{ userInformation.3 }}</td>
+                    <td>{{ userInformation.4 }}</td>
+                    <td><a href="/edit/{{userInformation.0}}" class="btn btn-secondary">Edit</a>
+                        <a href="/tableDelete/{{userInformation.0}}" class="btn btn-secondary">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
 </div>
 
-<div> 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Age</th>
-                <th>Name</th>
-                <th>Last Name</th>
-                <th>Ocupation</th>
-                <th>Operation</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for contact in db_data %}
-            <tr>
-                <td>{{ contact[0] }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-        <button>
-            <a href="/tableUpdate" class="btn btn-secondary">Edit</a>
-        </button>
-        <button>
-            <a href="/tableDelete" class="btn btn-secondary">Delete</a>
-        </button>
-    </table>
-</div>
+
 
 {% endblock %}
 
