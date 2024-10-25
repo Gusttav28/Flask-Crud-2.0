@@ -7,7 +7,10 @@
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}
-        {{message}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <p>{{message}}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     {% endfor %}
     {% endif %}
     {% endwith %}
@@ -39,15 +42,25 @@
                     <td>{{ userInformation.2 }}</td>
                     <td>{{ userInformation.3 }}</td>
                     <td>{{ userInformation.4 }}</td>
-                    <td><a href="/edit/{{userInformation.0}}" class="btn btn-secondary">Edit</a>
-                        <a href="/tableDelete/{{userInformation.0}}" class="btn btn-secondary">Delete</a>
+                    <td>
+                        <button>
+                            <a href="/edit/{{userInformation.0}}" class="btn btn-secondary btnEdit">Edit</a>
+                        </button>
+                        <button>
+                            <a href="/tableDelete/{{userInformation.0}}" class="btn btn-secondary btnDelete">Delete</a>
+                            <!-- <script src="{{url_for('static', filename='js/events.js')}}"></script> -->
+                        </button>
+                        <div>
+                            <button class="btnEdit">Button Test</button>
+                            <!-- <script src="{{url_for('static', filename='js/events.js')}}"></script> -->
+                            <!-- <script src="{{url_for('static', filename='js/main.js')}}"></script>          -->
+                        </div>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-
 </div>
 
 

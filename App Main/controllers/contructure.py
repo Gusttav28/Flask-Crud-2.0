@@ -38,7 +38,7 @@ class app:
 
     # main method for run the application
     def app_main(self):
-        self.appFlask_name_.run(port=8090, debug=True)
+        self.appFlask_name_.run(port=8092, debug=True)
 
     
     #method for starts the routes
