@@ -1,31 +1,52 @@
 {% extends 'layouts/layout.html' %}
 
 {% block body %}
-<h1>this is the table view page</h1>
 
-<div>
-    {% with messages = get_flashed_messages() %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-light" role="alert">
+                <p>{{message}}</p>
+            </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <!-- in the POST method, its really important that method in the form it have to be ALWAWS at front, first that the action, than comes the action with the NAME OF THE FUNTION WHO HAVE THE URL -->
+        <div class="card card-body">
+            <form method="POST" action="/addUser" >
+                <div class="form-group pt-3">
+                    <input type="text" name = "Age" placeholder="Age" class="form-control">
+                </div>
+                <div class="form-group pt-3">
+                    <input type="text" name = "Name" placeholder="Name" class="form-control">
+                </div>
+                <div class="form-group pt-3">
+                    <input type="text" name = "lastName" placeholder="Last Name" class="form-control">
+                </div>
+                <div class="form-group pt-3">
+                    <input type="text" name = "Ocupation" placeholder="Ocupation" class="form-control">
+                </div>
+                <div class="form-group pt-3">
+                    <button type="submit" class="btn btn-dark btn-block">Save</button>
+                </div>
+            </form>
+        </div>        
+    </div>
+    <!-- {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <div class="alert alert-light" role="alert">
             <p>{{message}}</p>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     {% endfor %}
     {% endif %}
-    {% endwith %}
-    <!-- in the POST method, its really important that method in the form it have to be ALWAWS at front, first that the action, than comes the action with the NAME OF THE FUNTION WHO HAVE THE URL -->
-    <form method="POST" action="/addUser" >
-        <input type="text" name = "Age" placeholder="Age" class="form-control">
-        <input type="text" name = "Name" placeholder="Name" class="form-control">
-        <input type="text" name = "lastName" placeholder="lastName" class="form-control">
-        <input type="text" name = "Ocupation" placeholder="Ocupation" class="form-control">
-        <button type="submit">Save</button>
-    </form>
-    <div> 
-        <table>
+    {% endwith %} -->
+    <div class="col-md-6"> 
+        <table class="table table-striped table-bordered bg-white table-sm">
             <thead>
-                <tr>
+                <tr class="form-group pt-3">
                     <th>ID</th>
                     <th>Age</th>
                     <th>Name</th>
@@ -43,15 +64,12 @@
                     <td>{{ userInformation.3 }}</td>
                     <td>{{ userInformation.4 }}</td>
                     <td>
-                        <button>
-                            <a href="/edit/{{userInformation.0}}" class="btn btn-secondary btnEdit">Edit</a>
-                        </button>
-                        <button>
-                            <a href="/tableDelete/{{userInformation.0}}" class="btn btn-secondary btnDelete">Delete</a>
-                            <!-- <script src="{{url_for('static', filename='js/events.js')}}"></script> -->
-                        </button>
+                        <div class="d-flex gap-2">
+                            <a href="/edit/{{userInformation.0}}" class="btn btn-outline-info btnEdit">Edit</a>
+                            <a href="/tableDelete/{{userInformation.0}}" class="btn btn-outline-danger btnDelete">Delete</a>
+                        </div>
                         <div>
-                            <button class="btnEdit">Button Test</button>
+                            <!-- <button class="btnEdit">Button Test</button> -->
                             <!-- <script src="{{url_for('static', filename='js/events.js')}}"></script> -->
                             <!-- <script src="{{url_for('static', filename='js/main.js')}}"></script>          -->
                         </div>
@@ -60,10 +78,10 @@
                 {% endfor %}
             </tbody>
         </table>
-    </div>
-</div>
+    </div>  
+        
 
-
-
+</div>    
+    
 {% endblock %}
 

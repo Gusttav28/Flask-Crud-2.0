@@ -1,14 +1,25 @@
+{% extends 'layouts/layout.html' %}
 {% block body %}
-<h1>this is the login view, put the credentials right to go to the menu</h1>
+<!-- <h1>this is the login view, put the credentials right to go to the menu</h1> -->
 
-<div>
-    <!-- here we just need to put first the action and the url with the name of the funtion, and than we need to put the method, that in this case is a GET method -->
-    <form action="{{ url_for('handle_login') }}" methods="GET">
-    <input type="text" name = "username" placeholder="username" class="form-control">
-        <input type="text" name = "password" placeholder="password" class="form-control">
-        <button type="submit">Submit</button>
-    </form>
-
+<div class="d-flex justify-content-center align-items-center" style="min-height: 50vh;">
+    <div class="col-md-6 col-lg-4">
+        <label for="username" class="form-label form-control-lg">Login</label>
+        <div class="card card-body p-3">
+            <!-- here we just need to put first the action and the url with the name of the funtion, and than we need to put the method, that in this case is a GET method -->
+            <form class="text-center" action="{{ url_for('handle_login') }}" methods="GET">
+                <div class="form-group pt-3">
+                    <input type="text" class="form-control" placeholder="User Name">
+                </div>
+                <div class="form-group pt-3">
+                    <input type="password" placeholder="Password" class="form-control" aria-describedby="passwordHelpBlock">
+                </div>
+                <div class="form-group pt-3">
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </div>
+            </form>    
+        </div>  
+    </div>
 </div>
 
 
