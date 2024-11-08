@@ -2,19 +2,21 @@
 
 {% block body %}
 
+
+
 <div class="row justify-content-center">
     <div class="col-md-5">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-light" role="alert">
-                <p>{{message}}</p>
+            <div class="alert alert-dismissible alert-warning" role="alert">
+                <p class="alert-link">{{message}}</p>
             </div>
         {% endfor %}
         {% endif %}
         {% endwith %}
         <!-- in the POST method, its really important that method in the form it have to be ALWAWS at front, first that the action, than comes the action with the NAME OF THE FUNTION WHO HAVE THE URL -->
-        <div class="card card-body">
+        <div class="card card-body border-0">
             <form method="POST" action="/addUser" >
                 <div class="form-group pt-3">
                     <input type="text" name = "Age" placeholder="Age" class="form-control">
@@ -64,6 +66,7 @@
                     <td>{{ userInformation.3 }}</td>
                     <td>{{ userInformation.4 }}</td>
                     <td>
+
                         <div class="d-flex gap-2">
                             <a href="/edit/{{userInformation.0}}" class="btn btn-outline-info btnEdit">Edit</a>
                             <a href="/tableDelete/{{userInformation.0}}" class="btn btn-outline-danger btnDelete">Delete</a>

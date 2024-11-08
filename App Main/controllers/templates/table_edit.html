@@ -1,20 +1,24 @@
 {% extends 'layouts/layout.html' %}
 
 {% block body %}
-<h1>this the edit user page</h1>
 
-<div class="form-group pt-3">
+<div class="d-flex justify-content-center align-items-center" style="min-height: 30vh;">
     <body>
-        <form method="POST" action="/tableUpdate/{{user_information.0}}" >
-            <input type="text" id="dataUpdating"name = "Age" placeholder="Age" value="{{user_information.1}}" class="form-control">
-            <input type="text" name = "Name" placeholder="Name"value="{{user_information.2}}"class="form-control">
-            <input type="text" name = "lastName" placeholder="lastName"value="{{user_information.3}}"class="form-control">
-            <input type="text" name = "Ocupation" placeholder="Ocupation"value="{{user_information.4}}"class="form-control">
-            <button class="btnEditReady" type="submit">Save</button>
-            <!-- <script type= "module" src="{{url_for('static', filename='js/main.js')}}"></script>          -->
-        </form>
+        <div class="col-lg-6">
+            <div class="card card-body border-0 p-5">
+                <form method="POST" action="/tableUpdate/{{user_information.0}}" >
+                    <input type="text" id="dataUpdating"name = "Age" placeholder="Age" value="{{user_information.1}}" class="form-control">
+                    <input type="text" name = "Name" placeholder="Name"value="{{user_information.2}}"class="form-control">
+                    <input type="text" name = "lastName" placeholder="lastName"value="{{user_information.3}}"class="form-control">
+                    <input type="text" name = "Ocupation" placeholder="Ocupation"value="{{user_information.4}}"class="form-control">
+                    <div class="d-flex justify-content-center mt-3">
+                        <button class="btnEditReady btn btn-dark btn-block" type="submit">Save</button>
+                    </div>
+                    <!-- <script type= "module" src="{{url_for('static', filename='js/main.js')}}"></script>          -->
+                </form>           
+            </div>            
+        </div>
     </body>
-
 </div>
 
 {% endblock %}

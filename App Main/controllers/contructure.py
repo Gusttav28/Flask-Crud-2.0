@@ -138,7 +138,7 @@ class app:
             try:
                 cur.execute(f'DELETE FROM user WHERE id = {id}')
                 self.cnn.commit()
-                flash(f"the user with the id: {id} was delete successfully")
+                flash(f"The user with the id: {id} was delete successfully")
                 return redirect(url_for("table_view"))
             except:
                 print("It was some error, try again later")
