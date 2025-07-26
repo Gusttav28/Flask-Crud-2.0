@@ -38,7 +38,7 @@ class app:
 
     # main method for run the application
     def app_main(self):
-        self.appFlask_name_.run(port=8093, debug=True)
+        self.appFlask_name_.run(port=8092, debug=True)  
 
     
     #method for starts the routes
@@ -128,7 +128,7 @@ class app:
                     flash(f"The user with the id: {id} was updated successfully")
                     return redirect(url_for("table_view"))
                 except:
-                    flask(f"something goes wrong while trying to update the user with the id: {id}")
+                    flash(f"something goes wrong while trying to update the user with the id: {id}")
             return redirect(url_for("table_view"))
         
         #method for the table delete route (it could be delete)

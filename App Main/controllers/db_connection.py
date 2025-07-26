@@ -21,7 +21,7 @@ def data_consulting():
 def inserting_into_theDb(age, first_name = str, last_name = str, ocupation = str):
     age = age
     first_name = first_name
-    last_name = last_name
+    last_name = last_name   
     ocupation = ocupation
     cur = cnn.cursor()
     cur.execute('INSERT INTO user (age, first_name, last_name, ocupation) VALUES(%s, %s, %s, %s)',(age, first_name, last_name, ocupation))
